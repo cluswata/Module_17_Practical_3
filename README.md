@@ -14,14 +14,17 @@ Compare LR, DT, KNN, and SVM models based on accuracy, training time, and ROC-AU
   * **Pros:** Easily interpretable, quick to train, handles imbalanced classes well.
   * **Cons:** May struggle with complex, non-linear patterns without additional feature engineering.
 <br>
+
 * **Decision Trees (DT)**
   * **Pros:** Easy to visualize and interpret, can be pruned to manage performance on minority classes, fast training.
   * **Cons:** Risk of overfitting and creating overly complex trees.
 <br>
+
 * **K-Nearest Neighbors (KNN)**
   * **Pros:** Simple and easy to implement, effective with imbalanced classes if proper distance metrics and weighting are used.
   * **Cons:** Slow prediction times with large datasets, less interpretable than other models.
 <br>
+
 * **Support Vector Machines (SVM)**
   * **Pros:** Effective in high-dimensional spaces, handles class imbalance with appropriate kernels, performs well with complex, non-linear tasks.
   * **Cons:** Computationally intensive and slower with large datasets, harder to interpret due to high-dimensional transformations.<br>
