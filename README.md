@@ -161,20 +161,20 @@ All interaction patterns were statistically significant except `duration x pdays
 **Interpretation**
 
 ***Coefficients & Odds Ratios:***<br>
-* **Duration:** A one-unit increase in duration is associated with a 3.71-fold increase in the odds of subscription to a term deposit.<br>
-* **Housing** Having a housing loan decreases the odds of subscribing to a term deposit by 56%.<br>
+* **Duration:** A one-unit increase in last contact duration was associated with a 3.71-fold increase in the odds of subscription to a term deposit.<br>
+* **Housing:** Having a housing loan decreased the odds of subscribing to a term deposit by 56%.<br>
   
 **Statistical Significance:**
-All features are statistically significant (p < 0.05) except age and interaction of duration_pdays_mmar, which have p-values slightly above 0.05.
+All features were statistically significant (p < 0.05) except age and interaction of duration_pdays_mmar, which have p-values slightly above 0.05.
 
 **Model Fit:**
-* **LR Chi-squared** is very high, and the p-value indicates a significant model fit compared to a null model. The Pseudo R-squared (McFadden’s) of 0.354 suggests that the model explains approximately 35.4% of the variance in the outcome variable.
+* **LR Chi-squared** was very high, and the p-value indicated a significant model fit compared to a null model. The Pseudo R-squared (McFadden’s) of 0.354 suggested that the model explained approximately 35.4% of the variance in the target variable.
 
-* **Hosmer-Lemeshow Test:** The high Chi-squared value and the low p-value indicate that there may be issues with the goodness-of-fit of the model. The model does not fit the data perfectly. 
+* **Hosmer-Lemeshow Test:** The high Chi-squared value and the low p-value indicated that there might be issues with the goodness-of-fit of the model. The model did not fit the data perfectly. 
 
 **Overall Summary**<br>
-* **Strengths:** The model shows good overall performance with a high ROC-AUC score (87.4%), indicating strong discriminative ability. Precision for the non-subscribers class is high, which is good for identifying non-subscribers accurately.<br>
-* **Weaknesses:** The recall for the subscribers class is lower, meaning the model misses a considerable proportion of actual subscribers. This may be important if the goal is to identify as many subscribers as possible, even if it means accepting some false positives.
+* **Strengths:** The model showed good overall performance with a high ROC-AUC score (87.4%), indicating strong discriminative ability. Precision for the non-subscribers class was high, which is good for identifying non-subscribers accurately.<br>
+* **Weaknesses:** The recall for the subscribers class was lower, meaning the model missed a considerable proportion of actual subscribers. This may be important if the goal is to identify as many subscribers as possible, even if it means accepting some false positives.
 
 **Conclusion**
 The model can be adjusted through further feature engineering; including new or previously dropped features or excluding specific features, balancing the classes and/or more hyperparameters tuning in order to improve the model fittness and performance.
