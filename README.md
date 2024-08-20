@@ -3,7 +3,7 @@
 **Introduction:**
 In the competitive banking sector, optimizing marketing strategies is crucial for enhancing profitability and customer engagement. This study evaluated data from a Portuguese bank’s direct marketing campaigns, where phone calls were used to promote term deposits. The goal was to analyze client interactions and campaign outcomes to refine marketing efforts and boost term deposit subscriptions.
 
-We compared four classification models—Logistic Regression (LR), Decision Trees (DT), K-Nearest Neighbors (KNN), and Support Vector Machines (SVM)—to determine which model best predicts term deposit subscriptions. The comparison focused on accuracy, training speed, and ROC-AUC score.
+We compared four classification models—Logistic Regression (LR), Decision Trees (DT), K-Nearest Neighbors (KNN), and Support Vector Machines (SVM)—to determine which model best predicted term deposit subscriptions. The comparison focused on accuracy, training speed, and ROC-AUC score.
 
 **Objectives:**
 Compare LR, DT, KNN, and SVM models based on accuracy, training time, and ROC-AUC score to identify the most effective model for predicting term deposit subscriptions.
@@ -14,17 +14,14 @@ Compare LR, DT, KNN, and SVM models based on accuracy, training time, and ROC-AU
   * **Pros:** Easily interpretable, quick to train, handles imbalanced classes well.
   * **Cons:** May struggle with complex, non-linear patterns without additional feature engineering.
 <br>
-
 * **Decision Trees (DT)**
   * **Pros:** Easy to visualize and interpret, can be pruned to manage performance on minority classes, fast training.
   * **Cons:** Risk of overfitting and creating overly complex trees.
 <br>
-
 * **K-Nearest Neighbors (KNN)**
   * **Pros:** Simple and easy to implement, effective with imbalanced classes if proper distance metrics and weighting are used.
   * **Cons:** Slow prediction times with large datasets, less interpretable than other models.
 <br>
-
 * **Support Vector Machines (SVM)**
   * **Pros:** Effective in high-dimensional spaces, handles class imbalance with appropriate kernels, performs well with complex, non-linear tasks.
   * **Cons:** Computationally intensive and slower with large datasets, harder to interpret due to high-dimensional transformations.<br>
@@ -85,7 +82,7 @@ Shape of y data: (17493,)
   * **Decision Tree:** `max_depth` values of None,2, 3, 4, 5, 6,  10, 20; `min_samples_split` values of 2, 5; `min_samples_leaf` values of 1, 2.
   * **SVM:** `C` values of 0.001, 0.01, 0.1, 1, 10, 100; `kernel`: linear, rbf; and `gamma` values of scale, auto, 0.001, 0.01, 0.1, 1, 10.
 
-  Used GridSearchCV with 5-fold cross-validation to optimize hyperparameters and measured training duration with Python’s `time.time()`.e()`.
+  Used GridSearchCV with 5-fold cross-validation to optimize hyperparameters and measured training duration with Python’s `time.time()` function.
 
 * **Predictions and Performance Metrics:**
   * **Prediction Scores:** Computed for training and test sets.
@@ -97,31 +94,32 @@ Shape of y data: (17493,)
 The final selected model was analyzed to interpret predictors of term deposit subscriptions.
 
 **Results**
-![Compare_a](Graphs/Compare_a.png)
 
 ![Compare_1](Graphs/Compare_1.png)
 
+![Compare_a](Graphs/Compare_a.png)
+
 **Model Evaluation** <br>
 **1. Support Vector Machines (SVM):**
-* **Strengths:** Highest ROC-AUC score (0.92), indicating the best ability to discriminate between classes. High test accuracy (0.85) and balanced performance across classes.
+* **Strengths:** Highest ROC-AUC score (0.92), indicated the best ability to discriminate between classes (subscribers vs. non-subscribers). High test accuracy (0.85) and balanced performance across classes.
 * **Weaknesses:** Very high training time (2542.27 seconds), which could be impractical for large datasets or frequent retraining.
 
 **2. K-Nearest Neighbors (KNN):**<br>
 * **Strengths:** Good ROC-AUC score (0.87) and reasonable test accuracy (0.82). Decent balance between precision and recall, with relatively shorter training time (2.09 seconds).
-* **Weaknesses:** Lower test accuracy compared to SVM and slightly less effective in handling class imbalance (lower recall for the positive class).
+* **Weaknesses:** Lower test accuracy compared to SVM and slightly less effective in handling class imbalance (lower recall for the subscribers class).
 
 **3. Logistic Regression:**<br>
 * **Strengths:** Competitive ROC-AUC score (0.89) and test accuracy (0.83). Moderate training time (0.51 seconds) and simple interpretability.
-* **Weaknesses:** Slightly lower performance in ROC-AUC compared to SVM, with similar issues in recall for the positive class.
+* **Weaknesses:** Slightly lower performance in ROC-AUC compared to SVM, with similar issues in recall for the subscribers class.
 
 **4. Decision Tree:**<br>
 * **Strengths:** Reasonable ROC-AUC score (0.86) and test accuracy (0.83). Moderate training time (1.01 seconds).
 * **Weaknesses:** Lower ROC-AUC compared to SVM and Logistic Regression. The model can also be prone to overfitting, especially if not tuned properly.
 
 **Best Model Choice:**<br>
-Support Vector Machines (SVM) is the best model overall based on the following considerations:
+Support Vector Machines (SVM) was the best model overall based on the following considerations:
 
-* **ROC-AUC Score:** Highest, which indicates the best performance in distinguishing between classes.
+* **ROC-AUC Score:** Highest, which indicated the best performance in distinguishing between classes.
 * **Test Accuracy:** High at 0.85, reflecting overall good performance.
 * **Class Balance:** SVM has balanced precision and recall for both classes, showing robust performance across the board.
 
@@ -130,10 +128,10 @@ Support Vector Machines (SVM) is the best model overall based on the following c
 * **Complexity:** SVMs are more complex to tune and interpret compared to simpler models like Logistic Regression or Decision Trees.
 
 **Conclusion:**<br>
-SVM is the best choice, however, for faster training times, interpretability and reasonable performance, Logistic Regression is more practical. 
+SVM was the best choice, however, for faster training times, interpretability and reasonable performance, Logistic Regression was more practical hence selected. 
 
 
-**FINAL MODEL: LOGISTIC REGRESSION**
+**FINAL MODEL: LOGISTIC REGRESSION**<br>
 A decision tree algorithm was used to explore complex interactions to add to the logistic regression model.
 
 ![DT_model](Graphs/DT_model.png)
@@ -146,7 +144,7 @@ The interaction patterns below where derived and added to the Logistic regressio
   4. duration x pdays x month_mar
   5. duration x housing_yes
 ```
-All interaction patterns were statistically significant except `duration_pdays_mmar`.
+All interaction patterns were statistically significant except `duration x pdays x month_mar (duration_pdays_mmar)`.
 
 
 **Final Model**
@@ -176,7 +174,7 @@ All features are statistically significant (p < 0.05) except age and interaction
 * **Weaknesses:** The recall for the subscribers class is lower, meaning the model misses a considerable proportion of actual subscribers. This may be important if the goal is to identify as many subscribers as possible, even if it means accepting some false positives.
 
 **Conclusion**
-The model can be adjusted through feature engineering; including new or previously dropped features or excluding specific features, balancing the classes further and/or more hyperparameters tuning in order to improve the model fit and performance.
+The model can be adjusted through further feature engineering; including new or previously dropped features or excluding specific features, balancing the classes and/or more hyperparameters tuning in order to improve the model fittness and performance.
 
 
 
